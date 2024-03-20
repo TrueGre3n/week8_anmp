@@ -5,12 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.navigation.Navigation
 import com.ubaya.anmp_week1.databinding.FragmentMainBinding
+import java.util.logging.Level
 import kotlin.random.Random
 
 class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,6 +26,7 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         var num1 = Random.nextInt(1,1000)
         var num2 = Random.nextInt(1,1000)
@@ -50,6 +54,11 @@ class MainFragment : Fragment() {
                 Navigation.findNavController(it).navigate(action)
             }
 
+        }
+
+        binding.btnSetting.setOnClickListener{
+            val action = MainFragmentDirections.actionOptionFagment()
+            Navigation.findNavController(it).navigate(action)
         }
     }
 }
