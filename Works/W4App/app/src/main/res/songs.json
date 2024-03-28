@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "title": "Rhythm of the Road",
+    "artist": "The Highway Cruisers",
+    "genre": ["Rock", "Blues"],
+    "album": {
+      "name": "Wheels of Steel",
+      "year": 2023
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=1"
+  },
+  {
+    "id": 2,
+    "title": "Midnight Drive",
+    "artist": "Neon Nights",
+    "genre": ["Synthwave", "Electronic"],
+    "album": {
+      "name": "Neon Dreams",
+      "year": 2022
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=2"
+  },
+  {
+    "id": 3,
+    "title": "Highway to Nowhere",
+    "artist": "Lost Souls Band",
+    "genre": ["Country", "Folk"],
+    "album": {
+      "name": "Desert Tales",
+      "year": 2021
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=3"
+  },
+  {
+    "id": 4,
+    "title": "City Lights",
+    "artist": "Urban Beat",
+    "genre": ["Pop", "R&B"],
+    "album": {
+      "name": "Metropolis",
+      "year": 2024
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=4"
+  },
+  {
+    "id": 5,
+    "title": "Ocean Drive",
+    "artist": "Coastal Vibes",
+    "genre": ["Chillwave", "Ambient"],
+    "album": {
+      "name": "Seaside Serenity",
+      "year": 2020
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=5"
+  },
+  {
+    "id": 6,
+    "title": "Sunset Boulevard",
+    "artist": "Golden Hour",
+    "genre": ["Indie", "Alternative"],
+    "album": {
+      "name": "Sunset Stories",
+      "year": 2019
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=6"
+  },
+  {
+    "id": 7,
+    "title": "Freeway Jam",
+    "artist": "Highway Harmony",
+    "genre": ["Jazz", "Fusion"],
+    "album": {
+      "name": "Groove Highway",
+      "year": 2018
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=7"
+  },
+  {
+    "id": 8,
+    "title": "Lost Highway",
+    "artist": "Desert Drifters",
+    "genre": ["Rock", "Country"],
+    "album": {
+      "name": "Dust and Dreams",
+      "year": 2017
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=8"
+  },
+  {
+    "id": 9,
+    "title": "Cruise Control",
+    "artist": "Highway Beats",
+    "genre": ["Electronic", "Dance"],
+    "album": {
+      "name": "Electro Drive",
+      "year": 2016
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=9"
+  },
+  {
+    "id": 10,
+    "title": "Road Trip",
+    "artist": "Open Road Orchestra",
+    "genre": ["Orchestral", "Instrumental"],
+    "album": {
+      "name": "Symphony of Travel",
+      "year": 2015
+    },
+    "images": "https://loremflickr.com/320/240/cars?lock=10"
+  }
+]
