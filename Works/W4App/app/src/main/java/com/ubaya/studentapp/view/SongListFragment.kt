@@ -9,20 +9,21 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ubaya.studentapp.R
+import com.ubaya.studentapp.databinding.FragmentSongListBinding
 import com.ubaya.studentapp.databinding.FragmentStudentListBinding
 import com.ubaya.studentapp.viewmodel.ListViewModel
+import com.ubaya.studentapp.viewmodel.SongListViewModel
 
-
-class StudentListFragment : Fragment() {
-    private  lateinit var binding:FragmentStudentListBinding
-    private lateinit var viewModel: ListViewModel
-    private val studentListAdapter = StudentListAdapter(arrayListOf())
+class SongListFragment : Fragment() {
+    private lateinit var binding:FragmentSongListBinding
+    private lateinit var viewModel: SongListViewModel
+    private val songListAdapter = SongListAdapter(arrayListOf())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentStudentListBinding.inflate(inflater,container,false)
+        binding = FragmentSongListBinding.inflate(inflater,container,false)
         // Inflate the layout for this fragment
         return binding.root
     }
@@ -30,11 +31,11 @@ class StudentListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(SongListViewModel::class.java)
         viewModel.refresh()
 
         binding.recView.layoutManager = LinearLayoutManager(context)
-        binding.recView.adapter = studentListAdapter
+        binding.recView.adapter = songListAdapter
 
         observerViewModel()
 
@@ -48,12 +49,12 @@ class StudentListFragment : Fragment() {
     }
 
     fun observerViewModel(){
-        //it berisi arraylistofstudent yang teraktual
-        viewModel.studentsLD.observe(viewLifecycleOwner, Observer {
-            studentListAdapter.updateStudentList(it)
+
+        viewModel.songsLD.observe(viewLifecycleOwner, Observer {
+            songListAdapter.updateSongList(it)
         })
 
-        viewModel.studentLoadErrorLD.observe(viewLifecycleOwner, Observer {
+        viewModel.songLoadErrorLD.observe(viewLifecycleOwner, Observer {
             if(it == true){
                 binding.txtError.visibility = View.VISIBLE
 
@@ -72,4 +73,5 @@ class StudentListFragment : Fragment() {
             }
         })
     }
+
 }
