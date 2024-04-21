@@ -59,7 +59,7 @@ class LoginFragment : Fragment() {
         viewModel.loginStatLD.observe(viewLifecycleOwner, Observer{
             if(it == true) {
                 Toast.makeText(requireContext(), "sukses login", Toast.LENGTH_SHORT).show()
-                var loginInfo = "com.zuzudev.yarntopia"
+                var loginInfo = "com.ubaya.uts_160421038"
                 var shared: SharedPreferences = requireContext().getSharedPreferences(loginInfo,
                     Context.MODE_PRIVATE )
                 var editor: SharedPreferences.Editor = shared.edit()

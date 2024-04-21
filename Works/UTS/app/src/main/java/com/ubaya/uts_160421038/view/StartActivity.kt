@@ -23,16 +23,6 @@ class StartActivity : AppCompatActivity() {
 
 
     override fun onBackPressed() {
-//        var loginInfo = "com.zuzudev.yarntopia"
-//        var shared: SharedPreferences = getSharedPreferences(loginInfo,
-//            Context.MODE_PRIVATE )
-//        var userid = shared.getString("username","").toString()
-//        if(userid == "")
-//        {
-//            Toast.makeText(this, "Press Back Button", Toast.LENGTH_SHORT).show()
-//        }
-//        else{
         super.onBackPressed()
-//        }
     }
 }

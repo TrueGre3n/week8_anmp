@@ -35,23 +35,24 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnRegister.setOnClickListener {
             var username = binding.txtUsername.text.toString()
+            var firstName = binding.txtFirst.text.toString()
+            var lastName = binding.txtLast.text.toString()
             var password = binding.txtPassword.text.toString()
             var confirm = binding.txtConfirm.text.toString()
             var email = binding.txtEmail.text.toString()
-            var first_name = binding.txtFirst.text.toString()
-            var last_name = binding.txtLast.text.toString()
+
 
             if ((password == confirm) &&
-                (username != "" && password != "" && confirm != "" && first_name != "" && last_name != "" && email != "")
+                (username != "" && password != "" && confirm != "" && firstName != "" && lastName != "" && email != "")
             ) {
-                viewModel.fetch(username, password, email, first_name, last_name)
+                viewModel.fetch(username, firstName, lastName, email,password )
 
 
-            } else if (username == "" || password == "" || confirm == "" || first_name == "" || last_name == "" || email == "") {
-                Toast.makeText(requireContext(), "Isi semua field", Toast.LENGTH_SHORT).show()
+            } else if (username == "" || password == "" || confirm == "" || firstName == "" || lastName == "" || email == "") {
+                Toast.makeText(requireContext(), "Fill all Field", Toast.LENGTH_SHORT).show()
 
             } else {
-                Toast.makeText(requireContext(), "Pasword salah", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Wrong Password", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -62,10 +63,11 @@ class RegisterFragment : Fragment() {
 
         viewModel.registerLD.observe(viewLifecycleOwner, Observer{
             if(it == true) {
-                Toast.makeText(requireContext(), "Berhasil Register", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Succesfully Registered", Toast.LENGTH_SHORT).show()
+
             }
             else{
-                Toast.makeText(requireContext(), "gagal register", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Failed to Register", Toast.LENGTH_SHORT).show()
             }
 
 

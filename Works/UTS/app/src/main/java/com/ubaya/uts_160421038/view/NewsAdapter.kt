@@ -28,7 +28,7 @@ class NewsAdapter(val newsList:ArrayList<Game>):RecyclerView.Adapter<NewsAdapter
     override fun onBindViewHolder(holder: GameViewHolder, position: Int) {
         holder.binding.txtTitle.text = newsList[position].title
         holder.binding.txtAuthor.text = "by " + newsList[position].author
-        holder.binding.txtDate.text = "created on " + newsList[position].date
+        holder.binding.txtDate.text = "(" + newsList[position].date +")"
         holder.binding.txtDesc.text = newsList[position].description
 
         holder.binding.btnRead.setOnClickListener {

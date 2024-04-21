@@ -26,7 +26,7 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
         loginStatLD.value = false
 
         queue = Volley.newRequestQueue(getApplication())
-        val url = "http://192.168.152.27/hobby_uts/login.php"
+        val url = "http://192.168.73.27/hobby_uts/login.php"
 
         val stringRequest = object : StringRequest(
             Request.Method.POST, url,

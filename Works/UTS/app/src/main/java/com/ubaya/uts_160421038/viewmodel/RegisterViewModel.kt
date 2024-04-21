@@ -18,9 +18,9 @@ class RegisterViewModel(application: Application): AndroidViewModel(application)
     val TAG = "volleyTag"
     private var queue: RequestQueue? = null
 
-    fun fetch(username: String,  first_name:String, last_name:String,email:String, password:String) {
+    fun fetch(username: String,  firstName:String, lastName:String,email:String, password:String) {
         queue = Volley.newRequestQueue(getApplication())
-        val url = "http://192.168.152.27/hobby_uts/register.php"
+        val url = "http://192.168.73.27/hobby_uts/register.php"
 
         val stringRequest = object : StringRequest(
             Request.Method.POST, url,
@@ -40,8 +40,8 @@ class RegisterViewModel(application: Application): AndroidViewModel(application)
             override fun getParams(): MutableMap<String, String> {
                 val params = HashMap<String, String>()
                 params["username"] = username
-                params["first_name"] = first_name
-                params["last_name"] = last_name
+                params["first_name"] = firstName
+                params["last_name"] = lastName
                 params["email"] = email
                 params["password"] = password
                 return params

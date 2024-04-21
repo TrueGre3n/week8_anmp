@@ -22,7 +22,7 @@ class ProfileViewModel(application: Application): AndroidViewModel(application) 
 
     fun fetch(username: String) {
         queue = Volley.newRequestQueue(getApplication())
-        val url = "http://192.168.152.27/hobby_uts/userWId.php"
+        val url = "http://192.168.73.27/hobby_uts/userWId.php"
 
         val stringRequest = object : StringRequest(
             Request.Method.POST, url,
@@ -51,12 +51,40 @@ class ProfileViewModel(application: Application): AndroidViewModel(application) 
         queue?.add(stringRequest)
 
     }
-
-    fun updatePassword(username: String, password:String){
-//        updatePassLD.value = false
+    fun updateData(username:String, firstName:String, lastName:String ){
 
         queue = Volley.newRequestQueue(getApplication())
-        val url = "http://192.168.152.27/hobby_uts/updatePassword.php"
+        val url = "http://192.168.73.27/hobby_uts/updateData.php"
+
+        val stringRequest = object : StringRequest(
+            Request.Method.POST, url,
+            {
+                Log.d("apichangeddata", it.toString())
+                val obj = JSONObject(it)
+                if (obj.getString("result") == "success") {
+                    updateDataLD.value = true
+                }
+            },
+            {
+                Log.d("showchangeddata", it.toString())
+                updateDataLD.value = false
+            })
+        {
+            override fun getParams(): MutableMap<String, String> {
+                val params = HashMap<String, String>()
+                params["username"] = username
+                params["first_name"] = firstName
+                params["last_name"] = lastName
+                return params
+            }
+        }
+        stringRequest.tag = TAG
+        queue?.add(stringRequest)
+    }
+    fun updatePassword(username: String, password:String){
+
+        queue = Volley.newRequestQueue(getApplication())
+        val url = "http://192.168.73.27/hobby_uts/updatePassword.php"
 
         val stringRequest = object : StringRequest(
             Request.Method.POST, url,
@@ -83,37 +111,7 @@ class ProfileViewModel(application: Application): AndroidViewModel(application) 
         queue?.add(stringRequest)
     }
 
-    fun updateData(username:String, first_name:String, last_name:String ){
-//        updateDataLD.value = false
 
-        queue = Volley.newRequestQueue(getApplication())
-        val url = "http://192.168.152.27/hobby_uts/updateData.php"
-
-        val stringRequest = object : StringRequest(
-            Request.Method.POST, url,
-            {
-                Log.d("apichangeddata", it.toString())
-                val obj = JSONObject(it)
-                if (obj.getString("result") == "success") {
-                    updateDataLD.value = true
-                }
-            },
-            {
-                Log.d("showchangeddata", it.toString())
-                updateDataLD.value = false
-            })
-        {
-            override fun getParams(): MutableMap<String, String> {
-                val params = HashMap<String, String>()
-                params["username"] = username
-                params["first_name"] = first_name
-                params["last_name"] = last_name
-                return params
-            }
-        }
-        stringRequest.tag = TAG
-        queue?.add(stringRequest)
-    }
     override fun onCleared() {
         super.onCleared()
         queue?.cancelAll(TAG)

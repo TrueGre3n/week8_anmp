@@ -16,12 +16,12 @@ import org.json.JSONObject
 
 class DetailViewModel(application: Application): AndroidViewModel(application) {
     val listPage = MutableLiveData<ArrayList<Page>>()
-    val beritaLD = MutableLiveData<Game>()
+    val gameLD = MutableLiveData<Game>()
     val TAG = "volleyTag"
     private var queue: RequestQueue? = null
     fun fetch(id:Int) {
         queue = Volley.newRequestQueue(getApplication())
-        val url = "http://192.168.152.27/hobby_uts/gameWId.php?id="+id.toString()
+        val url = "http://192.168.73.27/hobby_uts/gameWId.php?id="+id.toString()
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -31,8 +31,8 @@ class DetailViewModel(application: Application): AndroidViewModel(application) {
                 if (obj.getString("result") == "OK") {
                     val data = obj.getJSONArray("data")
                     val sType = object: TypeToken<Game>(){}.type
-                    beritaLD.value = Gson().fromJson(data[0].toString(), sType) as Game
-                    Log.d("showvoley2", beritaLD.value.toString())
+                    gameLD.value = Gson().fromJson(data[0].toString(), sType) as Game
+                    Log.d("showvoley2", gameLD.value.toString())
                     detailNews(id)
 
                 }
@@ -46,7 +46,7 @@ class DetailViewModel(application: Application): AndroidViewModel(application) {
 
     fun detailNews(id:Int) {
         queue = Volley.newRequestQueue(getApplication())
-        val url = "http://192.168.152.27/hobby_uts/detailNews.php?id="+id.toString()
+        val url = "http://192.168.73.27/hobby_uts/detailNews.php?id="+id.toString()
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,

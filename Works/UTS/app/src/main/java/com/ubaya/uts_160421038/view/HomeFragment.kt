@@ -54,9 +54,6 @@ class HomeFragment : Fragment() {
                 binding.txtError?.visibility = View.GONE
             }
         })
-
-
-
         viewModel.loadingLD.observe(viewLifecycleOwner, Observer {
             if(it == true) {
                 binding.recView.visibility = View.GONE

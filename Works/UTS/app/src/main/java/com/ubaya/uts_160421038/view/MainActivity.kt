@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         getLoginInfo()
 
         navController = (supportFragmentManager.findFragmentById(R.id.navHost) as NavHostFragment).navController
-//        NavigationUI.setupActionBarWithNavController(this, navController)
 
         NavigationUI.setupActionBarWithNavController(this, navController, binding.drawerLayout)
         NavigationUI.setupWithNavController(binding.navView, navController)
@@ -33,15 +32,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    //halo ada manusia disini
-    //testing kedua kalinya
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController, binding.drawerLayout)
                 || super.onSupportNavigateUp()
     }
 
     fun getLoginInfo(){
-        var loginInfo = "com.zuzudev.yarntopia"
+        var loginInfo = "com.ubaya.uts_160421038"
         var shared: SharedPreferences = getSharedPreferences(loginInfo,
             Context.MODE_PRIVATE )
         username = shared.getString("username","").toString()
@@ -51,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         if(username != "")
         {
-            Toast.makeText(this, "Please Click Logout in Profile", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Please Log Out", Toast.LENGTH_SHORT).show()
         }
         else{
             super.onBackPressed()

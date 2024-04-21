@@ -38,10 +38,10 @@ class DetailFragment : Fragment() {
 
         viewModel.fetch(id)
 
-        viewModel.beritaLD.observe(viewLifecycleOwner, Observer {
+        viewModel.gameLD.observe(viewLifecycleOwner, Observer {
             binding.txtTitle2.setText(it.title)
             binding.txtAuthor2.setText("by " + it.author)
-            binding.txtDate2.setText("created on: " + it.date)
+            binding.txtDate2.setText(" (" + it.date+")")
             binding.txtDesc2.setText(it.description)
 
 

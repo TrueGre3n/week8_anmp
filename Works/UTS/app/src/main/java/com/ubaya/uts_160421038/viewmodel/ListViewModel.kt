@@ -27,7 +27,7 @@ class ListViewModel(application: Application): AndroidViewModel(application) {
         studentLoadErrorLD.value = false
 
         queue = Volley.newRequestQueue(getApplication())
-        val url = "http://192.168.152.27/hobby_uts/game.php"
+        val url = "http://192.168.73.27/hobby_uts/game.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -37,7 +37,6 @@ class ListViewModel(application: Application): AndroidViewModel(application) {
                 if (obj.getString("result") == "OK") {
                     val data = obj.getJSONArray("data")
                     val sType = object: TypeToken<List<Game>>(){}.type
-//                    val result = Gson().fromJson(data.toString(), sType)
                     gameLD.value = Gson().fromJson(data.toString(), sType) as ArrayList<Game>?
                     loadingLD.value = false
                     Log.d("showvoley", gameLD.value.toString())
