@@ -61,11 +61,11 @@ class DetailFragment : Fragment() {
                     }
                 })
         })
-        var currPagee = 1
+        var currPage = 1
         fun each(it:List<Page>, idx:Int){
             it.forEach {
-                if (it.id == idx){
-                    currPagee = idx
+                if (it.idPage == idx){
+                    currPage = idx
                     binding.txtContent.setText(it.newsContent)
                 }
             }
@@ -74,25 +74,25 @@ class DetailFragment : Fragment() {
             var page = it
             each(it, 1)
             binding.btnNext.setOnClickListener {
-                if (currPagee == 1){
-                    each(page,currPagee+1)
+                if (currPage == 1){
+                    each(page,currPage+1)
                     binding.btnPrev.visibility = View.VISIBLE
                     binding.btnNext.visibility = View.VISIBLE
                 }
-                else if (currPagee == 2){
-                    each(page,currPagee+1)
+                else if (currPage == 2){
+                    each(page,currPage+1)
                     binding.btnNext.visibility = View.GONE
                     binding.btnPrev.visibility = View.VISIBLE
                 }
             }
             binding.btnPrev.setOnClickListener {
-                if (currPagee == 3) {
-                    each(page, currPagee-1)
+                if (currPage == 3) {
+                    each(page, currPage-1)
                     binding.btnNext.visibility = View.VISIBLE
                     binding.btnPrev.visibility = View.VISIBLE
                 }
-                else if (currPagee == 2) {
-                    each(page, currPagee-1)
+                else if (currPage == 2) {
+                    each(page, currPage-1)
                     binding.btnPrev.visibility = View.GONE
                     binding.btnNext.visibility = View.VISIBLE
                 }
